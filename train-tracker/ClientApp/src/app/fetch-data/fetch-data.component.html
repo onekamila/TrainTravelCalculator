@@ -1,0 +1,16 @@
+<h1>Train Information</h1>
+
+<p *ngIf="!trains"><em>Loading...</em></p>
+
+<body *ngIf="trains">
+
+  <img src={{mockImagePath}} class="img-fluid" width="354" height="318">
+
+  <ul class="mt-3" style="margin-left: -1rem" *ngFor="let train of trains">
+    <li>Line Name: {{ train.lineName }}</li>
+    <li>Historical Time Delay: {{ train.historicalTimeDelay }} delay</li>
+    <li>Current Status: {{ train.currentStatus }}</li>
+    <li>Current Departure Time: {{ train.currentDepartureTime }}</li>
+    <li>Scheduled Departure Time: {{ train.scheduledDepartureTime }}</li>
+  </ul>
+</body>
