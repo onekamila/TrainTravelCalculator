@@ -33,4 +33,5 @@ class ScraperExecution:
 if __name__ == "__main__":
     driver = get_browser()
     scrape = ScraperExecution(driver)
-    print(scrape.search_train("PHL", "BOS", "03/16/2022"))
+    scrape.search_train("PHL", "BOS", "03/16/2022")
+    scrape.driver.quit()
