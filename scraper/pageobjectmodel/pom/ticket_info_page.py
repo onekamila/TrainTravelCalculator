@@ -1,6 +1,5 @@
 from scraper.pageobjectmodel.pom.base.base_page import BasePage
 from scraper.pageobjectmodel.execute.config import Config
-from selenium.webdriver.common.by import By
 
 
 class TicketInformationPage(BasePage):
@@ -17,10 +16,10 @@ class TicketInformationPage(BasePage):
         return self.expected_url == self.driver.get_current_url()
 
     def get_train_number(self):
-        self.driver.get_text_for_elements(self.train_number_list)
+        return self.driver.get_text_for_elements(self.train_number_list)
 
     def get_departure_time(self):
-        self.driver.get_text_for_elements(self.departure_time_list)
+        return self.driver.get_text_for_elements(self.departure_time_list)
 
     def get_arrival_time(self):
-        self.driver.get_text_for_elements(self.arrival_time_list)
+        return self.driver.get_text_for_elements(self.arrival_time_list)
