@@ -23,8 +23,8 @@ class DriverAPI:
         element.send_keys(data)
         return element
 
-    def get_element(self, element_method, method_used=By.CSS_SELECTOR):
-        return self.find(element_method, method_used)
+    def get_element(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):
+        return self.find(element_method, method_used, timeout)
 
     def find(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):
         try:
