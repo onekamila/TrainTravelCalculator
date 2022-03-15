@@ -20,18 +20,18 @@ class ScraperExecution:
         home.fill_destination(destination_info)
         home.fill_date(date_info)
         home.click_search_train_button()
-        time.sleep(10)  # Time sleep for page relocating
-        self.scrape_train_data()
+        time.sleep(10)  # Time sleep for page relocating and page loading
+        return self.scrape_train_data()
 
     def scrape_train_data(self):
         ticket = TicketInformationPage(self.driver)
         train_number_list = ticket.get_train_number()
         departure_time_list = ticket.get_departure_time()
         arrival_time_list = ticket.get_arrival_time()
-        return [train_number_list, departure_time_list, arrival_time_list]  # TODO: formating output to be JSON
+        return [train_number_list, departure_time_list, arrival_time_list]  # TODO: formating output to nested list, each element is a train entity
 
 
 if __name__ == "__main__":
     driver = webdriver.Chrome("../../drivers/chromedriver")
     scrape = ScraperExecution(driver)
-    scrape.search_train("PHL", "BOS", "03/16/2022")
+    print(scrape.search_train("PHL", "BOS", "03/16/2022"))
