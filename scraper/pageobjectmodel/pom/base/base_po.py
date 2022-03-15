@@ -2,9 +2,10 @@ from scraper.pageobjectmodel.driver_api import DriverAPI
 
 
 class BasePageObject:
-    def __init__(self, driver: DriverAPI):
+    def __init__(self, driver, is_present=True):
         self.driver = DriverAPI(driver)
-        # assert self.is_present() is True, "Page/ Modal Invalid"
+        if is_present is True:
+            assert self.is_present()
 
     def is_present(self):
-        pass
+        return False

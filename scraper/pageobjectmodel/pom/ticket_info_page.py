@@ -1,5 +1,5 @@
 from scraper.pageobjectmodel.pom.base.base_page import BasePage
-from scraper.pageobjectmodel.scrape_execute.config import Config
+from scraper.pageobjectmodel.execute.config import Config
 from selenium.webdriver.common.by import By
 
 
