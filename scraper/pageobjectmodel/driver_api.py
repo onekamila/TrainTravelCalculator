@@ -26,12 +26,9 @@ class DriverAPI:
     def get_element(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):
         return self.find(element_method, method_used, timeout)
 
-    def get_elements(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):
-        try:
-            element = self.driver.find_elements(element_method, method_used, timeout=15)
-            return element
-        except:
-            return None
+    def get_elements(self, element_method):
+        elements = self.driver.find_elements_by_css_selector(element_method)
+        return elements
 
     def find(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):
         try:
@@ -50,7 +47,7 @@ class DriverAPI:
         elements = self.get_elements(element_method)
         list_text = []
         for element in elements:
-            list_text.append(self.get_text(element))
+            list_text.append(element.text)
         return list_text
 
     def is_present_on_page(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):

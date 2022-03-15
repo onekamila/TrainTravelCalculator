@@ -8,7 +8,7 @@ class HomePage(BasePage):
     input_origin_field_CSS = "#page-content  .amtrak-ff-body .from-station input"
     input_destination_field_CSS = "#mat-input-1"
     input_departure_date_CSS = "#mat-input-2"
-    search_train_button_CSS = "button.search-btn"
+    search_train_button_CSS = "button.search-btn.ng-star-inserted"
 
     def __init__(self, driver, is_present=True):
         super().__init__(driver=driver, is_present=is_present)
@@ -27,4 +27,4 @@ class HomePage(BasePage):
         self.driver.click_enter(self.input_departure_date_CSS)
 
     def click_search_train_button(self):
-        self.driver.click_on(self.search_train_button_CSS)
+        self.driver.click_on(self.search_train_button_CSS, timeout=15)
