@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 def runScraper(origin, dest):
     # TODO: Scrape the data here
@@ -23,6 +26,7 @@ def runScraper(origin, dest):
 
 # http://127.0.0.1:8080/?origin=Philly&destination=NewYork
 @app.route("/")
+@cross_origin()
 def index():
     origin = request.args.get('origin')
     dest = request.args.get('destination')
