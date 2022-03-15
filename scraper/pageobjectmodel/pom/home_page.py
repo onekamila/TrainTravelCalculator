@@ -17,13 +17,14 @@ class HomePage(BasePage):
         return self.expected_url == self.driver.get_current_url()
 
     def fill_origin(self, content):
-        self.driver.send_data(self.input_origin_field_CSS, content, timeout=20)
+        self.driver.send_data(self.input_origin_field_CSS, content)
 
     def fill_destination(self, content):
-        self.driver.send_data(self.input_destination_field_CSS, content, timeout=10)
+        self.driver.send_data(self.input_destination_field_CSS, content)
 
     def fill_date(self, content):
-        self.driver.send_data(self.input_departure_date_CSS, content, timeout=10)
+        self.driver.send_data(self.input_departure_date_CSS, content)
+        self.driver.click_enter(self.input_departure_date_CSS)
 
     def click_search_train_button(self):
-        self.driver.click_on(self.search_train_button_CSS, timeout=10)
+        self.driver.click_on(self.search_train_button_CSS)
