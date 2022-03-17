@@ -1,5 +1,7 @@
 package main.java.DBObjects;
 
-public interface DBObject {
-    public abstract String toSQL();
+
+public interface DBObject
+{
+    public String toSQL();
 }

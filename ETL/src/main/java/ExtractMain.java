@@ -1,10 +1,12 @@
 package main.java;
 
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 
 public class ExtractMain
 {
@@ -21,7 +23,6 @@ public class ExtractMain
         // Get changed files
         ArrayList<String> fileNames = getFileNames(changeLog);
     }
-
 
     private String getChangeLog() throws URISyntaxException, IOException, InterruptedException
     {

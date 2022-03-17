@@ -1,8 +1,10 @@
 package main.java;
 
+
 import main.java.DBObjects.DBObject;
 
 import java.sql.*;
+
 
 public class DBConnection
 {
@@ -10,6 +12,7 @@ public class DBConnection
     private static final String USR = "etl";
     private static final String PSWD = "Amtrak315";
     private Connection dbConn;
+
 
     public DBConnection() throws SQLException
     {
@@ -30,6 +33,7 @@ public class DBConnection
         Statement query = dbConn.createStatement();
         return query.executeQuery(queryStr);
     }
+
 
     public void close() throws SQLException
     {

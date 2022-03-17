@@ -1,9 +1,9 @@
 package main.java.DBObjects;
 
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 public class Train implements DBObject
 {
@@ -11,11 +11,13 @@ public class Train implements DBObject
     private int num;
     private LocalDate depart;
 
+
     public Train(int num, LocalDate depart)
     {
         this.num = num;
         this.depart = depart;
     }
+
 
     public void setID(int id)
     {
@@ -41,9 +43,9 @@ public class Train implements DBObject
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         String sql = "SELECT train_id FROM train WHERE train_number =";
-        sql += num + " AND to_date('";
-        sql += depart.format(formatter);
-        sql += "', 'YYYY-MM-DD') = depart_date";
+        sql += num + " AND (";
+        sql += "depart_date = " + depart.format(formatter);
+        sql += "', 'YYYY-MM-DD'))";
 
         return sql;
     }

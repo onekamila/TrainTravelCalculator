@@ -1,6 +1,8 @@
 package main.java;
 
+
 import java.net.URISyntaxException;
+
 
 public class TrainHistoryRequest extends Request
 {
@@ -8,6 +10,7 @@ public class TrainHistoryRequest extends Request
     {
         super(fileName);
     }
+
 
     protected String getFullURL(String url)
     {

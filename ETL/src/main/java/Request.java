@@ -1,5 +1,6 @@
 package main.java;
 
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -9,12 +10,14 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.time.LocalDate;
 
+
 public abstract class Request
 {
     protected static final String BASE_URL = "http://www.dixielandsoftware.net/Amtrak/status/archive/";
 
     private HttpClient client;
     private HttpRequest request;
+
 
     public Request(String url) throws URISyntaxException
     {
@@ -23,6 +26,7 @@ public abstract class Request
         URI uri = new URI(fullURL);
         request = HttpRequest.newBuilder().uri(uri).GET().build();
     }
+
 
     protected abstract String getFullURL(String url);
 
@@ -40,10 +44,5 @@ public abstract class Request
     public HttpResponse<String> send() throws IOException, InterruptedException
     {
         return client.send(request, BodyHandlers.ofString());
-    }
-
-    public HttpRequest getRequest()
-    {
-        return request;
     }
 }

@@ -1,7 +1,9 @@
 package main.java;
 
+
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+
 
 public class ChangeLogRequest extends Request
 {
@@ -9,6 +11,7 @@ public class ChangeLogRequest extends Request
     {
         super(null);
     }
+
 
     protected String getFullURL(String url)
     {

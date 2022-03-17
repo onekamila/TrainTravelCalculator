@@ -1,5 +1,6 @@
 package main.java;
 
+
 import main.java.DBObjects.Route;
 import main.java.DBObjects.Stop;
 import main.java.DBObjects.Train;
@@ -17,6 +18,7 @@ public class TrainHistoryHandler extends Thread
     private int attempts;
     private TransformMain transform;
     private DBConnection db;
+
 
     public TrainHistoryHandler(String fileName)
     {
@@ -95,12 +97,20 @@ public class TrainHistoryHandler extends Thread
         {
             e.printStackTrace();
         }
+        try
+        {
+            db.close();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private int getRouteID(String routeName)
     {
-
-        try {
+        try
+        {
             routeName = routeName.replaceAll("\\*", " ").strip();
             String query = "SELECT route_id FROM route WHERE route_name = '" + routeName + "'";
 
@@ -118,7 +128,9 @@ public class TrainHistoryHandler extends Thread
 
                 return routeID;
             }
-        } catch (SQLException e) {
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
         }
 
@@ -127,17 +139,23 @@ public class TrainHistoryHandler extends Thread
 
     private int getTrainID(Train train)
     {
-        try {
+        try
+        {
             String query = train.toQuery();
             ResultSet result = db.query(query);
             result.next();
             return result.getInt(1);
-        } catch (SQLException e) {
-            try {
+        }
+        catch (SQLException e)
+        {
+            try
+            {
                 ResultSet result = db.query("SELECT train_id_sequence.nextval FROM DUAL");
                 result.next();
                 return result.getInt(1);
-            } catch (SQLException ex) {
+            }
+            catch (SQLException ex)
+            {
                 ex.printStackTrace();
             }
         }
@@ -153,14 +171,17 @@ public class TrainHistoryHandler extends Thread
             ResultSet result = db.query(query);
             result.next();
             return result.getInt(1);
-        } catch (SQLException e) {
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
         }
 
         return 0;
     }
 
-    private void insertStops(int routeID, int trainID, ArrayList<Stop> stops) throws SQLException {
+    private void insertStops(int routeID, int trainID, ArrayList<Stop> stops) throws SQLException
+    {
         for(Stop stop: stops)
         {
             String stationCode = stop.getStationCode();

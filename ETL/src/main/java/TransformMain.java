@@ -1,5 +1,6 @@
 package main.java;
 
+
 import main.java.DBObjects.Stop;
 import main.java.DBObjects.Train;
 
@@ -8,9 +9,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+
 public class TransformMain
 {
     private LocalDateTime originDate;
+
 
     public TransformMain()
     {
@@ -66,7 +69,7 @@ public class TransformMain
         return lines;
     }
 
-    public Stop parseStop(String rawLine)
+    private Stop parseStop(String rawLine)
     {
         rawLine = rawLine.replaceAll("\s+", " ");
 
@@ -111,12 +114,10 @@ public class TransformMain
         return dateVals;
     }
 
-
     private ArrayList<Integer> parseDateInts(List<String> rawVals)
     {
         // Parse ints
         ArrayList<Integer> intVals = parseInts(rawVals);
-
 
         if(intVals.get(0) == null)
             intVals.set(0, intVals.get(2));
