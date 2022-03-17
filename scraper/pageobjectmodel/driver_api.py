@@ -53,6 +53,35 @@ class DriverAPI:
     def get_current_url(self):
         return self.driver.current_url
 
+    def check_element_present(self, element_method, method_used=By.CSS_SELECTOR, timeout=15):
+        try:
+            element = WebDriverWait(self.driver, timeout).until(
+                EC.presence_of_element_located((element_method, method_used))
+            )
+            return (element is not None)
+        except:
+            return False
+
+    def check_element_clickable(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):
+        try:
+            element = self.wait_until_element_to_be_clickable(element_method, method_used, timeout)
+            return (element is not None)
+        except:
+            return False
+
+    def is_present_on_page(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):
+        try:
+            self.find(element_method, method_used, timeout)
+            return True
+        except:
+            return False
+
+    def switch_iframe(self, iframe_id):
+        self.driver.switch_to.frame(iframe_id)
+
+    def switch_default_content(self):
+        self.driver.switch_to.default_content()
+
     def quit(self):
         self.driver.quit()
 
