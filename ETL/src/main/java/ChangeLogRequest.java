@@ -14,7 +14,7 @@ public class ChangeLogRequest extends Request
     {
         String fullURL = getFullBaseURL();
         LocalDate today = LocalDate.now();
-        LocalDate yesterday = today.minusDays(2);
+        LocalDate yesterday = today.minusDays(1);
 
         String dateStr = yesterday.toString();
         String date = dateStr.replaceAll("-", "");

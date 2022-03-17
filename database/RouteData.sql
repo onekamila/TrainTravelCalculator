@@ -1,0 +1,55 @@
+--------------------------------------------------------
+--  File created - Thursday-March-17-2022   
+--------------------------------------------------------
+REM INSERTING into ETL.ROUTE
+SET DEFINE OFF;
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (9,'Valley Flyer');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (11,'Pacific Surfliner');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (18,'Texas Eagle');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (20,'Ethan Allen Express');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (29,'Cardinal');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (32,'Carolinian');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (33,'Palmetto');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (40,'Illinois Zephyr');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (3,'Empire Builder - Portland Section');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (8,'Wolverine');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (21,'Missouri River Runner');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (24,'Blue Water');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (31,'Maple Leaf');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (34,'Silver Star');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (35,'Auto Train');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (36,'Piedmont');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (46,'Illini');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (5,'California Zephyr');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (4,'Southwest Chief');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (14,'Northeast Regional - Virginia');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (22,'Hiawatha');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (37,'Pere Marquette');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (38,'Capitol Limited');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (41,'Saluki');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (43,'Crescent');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (61,'THIS TRAIN HAS EXPERIENCED CANCELLATIONS.');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (81,'Northeast Regional - Springfield/Virginia');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (6,'Coast Starlight');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (10,'Capitol Corridor');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (15,'Amtrak Cascades');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (19,'Empire Service');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (23,'San Joaquins');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (25,'Amtrak Hartford Line');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (30,'City of New Orleans');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (39,'Carl Sandburg');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (42,'Heartland Flyer');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (45,'Vermonter');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (47,'Sunset Limited');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (1,'THIS TRAIN EXPERIENCED A SERVICE DISRUPTION.');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (2,'Empire Builder');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (7,'Northeast Regional');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (12,'Lincoln Service');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (13,'Northeast Regional - Springfield');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (16,'Keystone Service');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (17,'Acela Express');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (26,'Lake Shore Limited - Boston Section');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (27,'Lake Shore Limited');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (28,'Downeaster');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (44,'Pennsylvanian');
+Insert into ETL.ROUTE (ROUTE_ID,ROUTE_NAME) values (82,'Winter Park Express');

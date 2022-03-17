@@ -8,6 +8,7 @@ package main.java;
  * TODO - Exception Handling (properly)
  * TODO - Move DB creds to separate file (better security)
  * TODO - CLEAN UP CODE
+ * TODO - Packages
  * TODO - System Initialization Script
  * TODO - Time Trigger Script
  * TODO - Find remote home for the system (i.e. remote server to deploy ETL + DB)

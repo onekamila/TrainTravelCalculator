@@ -36,6 +36,8 @@ public class ExtractMain
         ArrayList<String> fileNames = new ArrayList<>();
         ArrayList<String> lines = new ArrayList<String>(Arrays.asList(logFile.split("\n")));
 
+        System.out.println("Log files to request: " + lines.size());
+
         int threads = 0;
         for(String line: lines)
         {
@@ -53,10 +55,10 @@ public class ExtractMain
                 try
                 {
                     threads++;
-                    if((threads % 100) == 0)
+                    if((threads % 50) == 0)
                     {
                         System.out.println("Pausing to reduce strain on the server...");
-                        Thread.sleep(100);
+                        Thread.sleep(500);
                     }
                 }
                 catch (Exception i)
