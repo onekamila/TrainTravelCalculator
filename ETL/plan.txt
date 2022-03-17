@@ -1,6 +1,17 @@
-1. System triggers ETL
-2. ETL sends requests to statusmaps.com
-3. Statusmaps returns data
-4. ETL parses data
-5. ETL cleans data
-6. ETL loads data into DB
+1.  System triggers ETL
+2.  Get current date
+3.  Calculate previous day
+4.  Get changed_trains log
+5.  Parse log
+6.  Compile list of changed trains
+7.  Loop through changed trains
+8.      Get train log
+9.      Parse train log
+10.     Create objects
+11.     Add objects to appropriate list
+12. For each object list
+13.     Loop through objects
+14.     try
+15.         insert object
+16.     catch
+17.         update object
