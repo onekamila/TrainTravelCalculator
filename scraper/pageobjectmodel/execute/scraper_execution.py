@@ -1,7 +1,6 @@
 import time
 
-from selenium import webdriver
-
+from scraper.pageobjectmodel.browser import get_browser
 from scraper.pageobjectmodel.execute.config import Config
 from scraper.pageobjectmodel.pom.ticket_info_page import TicketInformationPage
 from scraper.pageobjectmodel.pom.home_page import HomePage
@@ -32,6 +31,7 @@ class ScraperExecution:
 
 
 if __name__ == "__main__":
-    driver = webdriver.Chrome("../../drivers/chromedriver")
+    driver = get_browser()
     scrape = ScraperExecution(driver)
-    print(scrape.search_train("PHL", "BOS", "03/16/2022"))
+    scrape.search_train("PHL", "BOS", "03/16/2022")
+    scrape.driver.quit()

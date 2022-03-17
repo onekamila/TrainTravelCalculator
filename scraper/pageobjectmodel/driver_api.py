@@ -50,13 +50,6 @@ class DriverAPI:
             list_text.append(element.text)
         return list_text
 
-    def is_present_on_page(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):
-
-        if self.get_element(element_method, method_used, timeout) is not None:
-            return True
-        else:
-            return False
-
     def get_current_url(self):
         return self.driver.current_url
 
