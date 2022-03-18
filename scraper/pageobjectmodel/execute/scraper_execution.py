@@ -31,16 +31,17 @@ class ScraperExecution:
         return train_data
 
     @staticmethod
-    def scrapeCombine(scrape_train_data):
-        group = [[scrape_train_data.train_number_list], [scrape_train_data.departure_time_list],[scrape_train_data.arrival_time_list]]
-        trainInfo = []
-        index = 0
-        for i in range(len(group[0])):
-            trainInfo.append([])
-            for j in range(len(group)):
-                trainInfo[index].append(group[j][index])
-        index += 1
-        return trainInfo
+    def reformat_train_info(train_number_list, departure_time_list, arrival_time_list):
+        output_list = []
+        for i in range(len(train_number_list)):
+            train_entity = {
+                "train_name": train_number_list[i],
+                "scheduled_departure": departure_time_list[i],
+                "scheduled_arrival": arrival_time_list[i],
+            }
+            output_list.append(train_entity)
+        return output_list
+
 
 if __name__ == "__main__":
     driver = get_browser()
