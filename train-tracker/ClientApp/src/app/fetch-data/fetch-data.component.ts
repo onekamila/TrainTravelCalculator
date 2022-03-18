@@ -1,11 +1,17 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Validators, FormGroup, FormBuilder, NgForm, FormControl, FormGroupDirective, AbstractControl, ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html'
 })
 export class FetchDataComponent {
+  trainQueryForm: FormGroup;
+
+  origin: FormControl;
+  dstination: FormControl;
+
   public mockImagePath: string;
   public trains: TrainInformation[];
   public trainsScrape: TrainScrapeInfo[];
