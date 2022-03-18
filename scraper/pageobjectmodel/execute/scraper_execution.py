@@ -27,8 +27,9 @@ class ScraperExecution:
         train_number_list = ticket.get_train_number()
         departure_time_list = ticket.get_departure_time()
         arrival_time_list = ticket.get_arrival_time()
-        return [train_number_list, departure_time_list, arrival_time_list] 
-    #new code: 
+        train_data = self.reformat_train_info(train_number_list, departure_time_list, arrival_time_list)
+        return train_data
+
     @staticmethod
     def scrapeCombine(scrape_train_data):
         group = [[scrape_train_data.train_number_list], [scrape_train_data.departure_time_list],[scrape_train_data.arrival_time_list]]
