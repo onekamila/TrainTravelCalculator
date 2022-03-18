@@ -1,6 +1,5 @@
 import time
 
-from scraper.pageobjectmodel.browser import get_browser
 from scraper.pageobjectmodel.execute.config import Config
 from scraper.pageobjectmodel.pom.ticket_info_page import TicketInformationPage
 from scraper.pageobjectmodel.pom.home_page import HomePage
@@ -41,10 +40,3 @@ class ScraperExecution:
             }
             output_list.append(train_entity)
         return output_list
-
-
-if __name__ == "__main__":
-    driver = get_browser()
-    scrape = ScraperExecution(driver)
-    scrape.search_train("PHL", "BOS", "03/16/2022")
-    scrape.driver.quit()
