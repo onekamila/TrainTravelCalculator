@@ -1,22 +1,20 @@
 package main.java;
 
+
 /**
- * TO DO LIST:
- * TODO - Logging
- * TODO - DOCUMENTATION!!!!!!!!
- * TODO - Thread pooling
- * TODO - Exception Handling (properly)
- * TODO - Move DB creds to separate file (better security)
- * TODO - CLEAN UP CODE
- * TODO - Packages
- * TODO - System Initialization Script
- * TODO - Time Trigger Script
- * TODO - Find remote home for the system (i.e. remote server to deploy ETL + DB)
+ * The main driver class for the overall system
+ *
+ *
+ *  @author Garrett Kamila Crayton
+ *  @version 1.0
  */
-
-
 public class Driver
 {
+    /**
+     * The main function of the entire system (actually runs everything)
+     *
+     * @param args
+     */
     public static void main(String[] args)
     {
         try
