@@ -27,8 +27,19 @@ class ScraperExecution:
         train_number_list = ticket.get_train_number()
         departure_time_list = ticket.get_departure_time()
         arrival_time_list = ticket.get_arrival_time()
-        return [train_number_list, departure_time_list, arrival_time_list]  # TODO: formating output to nested list, each element is a train entity
-
+        return [train_number_list, departure_time_list, arrival_time_list] 
+    #new code: 
+    @staticmethod
+    def scrapeCombine(scrape_train_data):
+        group = [[scrape_train_data.train_number_list], [scrape_train_data.departure_time_list],[scrape_train_data.arrival_time_list]]
+        trainInfo = []
+        index = 0
+        for i in range(len(group[0])):
+            trainInfo.append([])
+            for j in range(len(group)):
+                trainInfo[index].append(group[j][index])
+        index += 1
+        return trainInfo
 
 if __name__ == "__main__":
     driver = get_browser()
