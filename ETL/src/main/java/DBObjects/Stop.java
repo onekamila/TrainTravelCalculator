@@ -28,19 +28,34 @@ public class Stop implements DBObject
     /**
      * Class constructor
      *
+     * @param trainID the train_id of the train in the TrainHistory database
      * @param stationCode the 3-letter code Amtrak uses to identify the station
+     * @param routeID the route_id of the route in the TrainHistory database
      * @param sArr the scheduled date/time of arrival for the train
      * @param sDep the scheduled date/time of departure for the train
      * @param aArr the actual date/time of arrival for the train
      * @param aDep the actual date/time of departure for the train
      */
-    public Stop(String stationCode, LocalDateTime sArr, LocalDateTime sDep, LocalDateTime aArr, LocalDateTime aDep)
+    public Stop(int trainID, String stationCode, int routeID, LocalDateTime sArr, LocalDateTime sDep, LocalDateTime aArr, LocalDateTime aDep)
     {
+        this.trainID = trainID;
         this.stationCode = stationCode;
+        this.routeID = routeID;
         this.sArr = sArr;
         this.sDep = sDep;
         this.aArr = aArr;
         this.aDep = aDep;
+    }
+
+
+    /**
+     * Returns the station code for this Stop
+     *
+     * @return the stationCode for this Stop
+     */
+    public String getStationCode()
+    {
+        return stationCode;
     }
 
     /**
@@ -54,36 +69,6 @@ public class Stop implements DBObject
     }
 
     /**
-     * Sets the ID number of the corresponding train from TrainHistory database
-     *
-     * @param trainID the train_id of the corresponding Station in the TrainHistory database
-     */
-    public void setTrainID(int trainID)
-    {
-        this.trainID = trainID;
-    }
-
-    /**
-     * Set the ID number of the route from TrainHistory database
-     *
-     * @param routeID the route_id of the corresponding Station in the TrainHistory database
-     */
-    public void setRouteID(int routeID)
-    {
-        this.routeID = routeID;
-    }
-
-    /**
-     * Returns the station code for this Stop
-     *
-     * @return the stationCode for this Stop
-     */
-    public String getStationCode()
-    {
-        return stationCode;
-    }
-
-    /**
      * <b>MAY NOT BE USED BY ANYTHING!!</b> (Need to confirm)<br>
      * String representation of this Stop (used for
      *
@@ -93,12 +78,10 @@ public class Stop implements DBObject
     {
         ArrayList<String> outArr = new ArrayList<>();
 
-
         outArr.add(getDateStr(sArr));
         outArr.add(getDateStr(sDep));
         outArr.add(getDateStr(aArr));
         outArr.add(getDateStr(aDep));
-
 
         return outArr.toString();
     }

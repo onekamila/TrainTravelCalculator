@@ -24,7 +24,8 @@ public class TransformMain
      * The date and time the train departed from its origin station
      */
     private LocalDateTime originDate;
-
+    int routeID;
+    int trainID;
 
     /**
      * Class constructor
@@ -42,8 +43,11 @@ public class TransformMain
      * @param data the raw data from the retrieved train log
      * @return a list of Stop objects parsed from the datalog
      */
-    public ArrayList<Stop> cleanHistoryData(String fileName, String data)
+    public ArrayList<Stop> cleanHistoryData(String fileName, int routeID, int trainID, String data)
     {
+        this.routeID = routeID;
+        this.trainID = trainID;
+
         ArrayList<Stop> stops = new ArrayList<>();
 
         // Get date
@@ -128,7 +132,7 @@ public class TransformMain
         ArrayList<LocalDateTime> cleanedDates = parseDates(rawVals.subList(1, rawVals.size()));
 
         // Create new stop object
-        Stop stop = new Stop(rawVals.get(0), cleanedDates.get(0), cleanedDates.get(1), cleanedDates.get(2), cleanedDates.get(3));
+        Stop stop = new Stop(trainID, rawVals.get(0), routeID, cleanedDates.get(0), cleanedDates.get(1), cleanedDates.get(2), cleanedDates.get(3));
 
         return stop;
     }

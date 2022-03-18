@@ -81,10 +81,10 @@ public class TrainHistoryHandler extends Thread
                 int trainID = getTrainID(train);
 
                 // Clean the stop data
-                ArrayList<Stop> cleanedData = transform.cleanHistoryData(fileName, rawData);
+                ArrayList<Stop> cleanedData = transform.cleanHistoryData(fileName, routeID, trainID, rawData);
 
                 // Insert all the stop data
-                insertStops(routeID, trainID, cleanedData);
+                insertStops(cleanedData);
             }
             // If the request fails, explain why
             else
@@ -275,20 +275,16 @@ public class TrainHistoryHandler extends Thread
     /**
      * Insert the stops into the TrainHistory database
      *
-     * @param routeID the route_id of the route
-     * @param trainID the train_id of the route
      * @param stops the list of stops to be inserted
      * @throws SQLException if an error occurs during the operation
      */
-    private void insertStops(int routeID, int trainID, ArrayList<Stop> stops) throws SQLException
+    private void insertStops(ArrayList<Stop> stops) throws SQLException
     {
         for(Stop stop: stops)
         {
             int stationID = getStationID(stop.getStationCode());
 
-            stop.setTrainID(trainID);
             stop.setStationID(stationID);
-            stop.setRouteID(routeID);
 
             try
             {
