@@ -23,7 +23,8 @@ def runScraper(origin, dest, departure_date):
 def index():
     origin = request.args.get('origin')
     dest = request.args.get('destination')
-    res = runScraper(origin, dest)
+    departure_date = request.args.get('departure_date')
+    res = runScraper(origin, dest, departure_date)
     return jsonify(res)
 
 
