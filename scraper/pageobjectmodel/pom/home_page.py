@@ -1,7 +1,7 @@
 # Amtrak Home Page
 
 from scraper.pageobjectmodel.pom.base.base_page import BasePage
-from scraper.pageobjectmodel.execute.config import Config
+from scraper.pageobjectmodel.config import Config
 
 
 class HomePage(BasePage):

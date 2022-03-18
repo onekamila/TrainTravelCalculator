@@ -1,6 +1,6 @@
 import time
 
-from scraper.pageobjectmodel.execute.config import Config
+from scraper.pageobjectmodel.config import Config
 from scraper.pageobjectmodel.pom.ticket_info_page import TicketInformationPage
 from scraper.pageobjectmodel.pom.home_page import HomePage
 from scraper.pageobjectmodel.driver_api import DriverAPI
