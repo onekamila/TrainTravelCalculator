@@ -27,7 +27,9 @@ export class FetchDataComponent {
     this.trainQueryForm = formBuilder.group({
       'origin_station_id': this.origin,
       'destination_station_id': this.destination,
-      'train_id': ''
+      'train_id': '',
+      'scheduled_departure': '',
+      'scheduled_arrival': ''
     });
 
     this.mockImagePath = '/assets/images/trainMapMock.png';
