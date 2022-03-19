@@ -19,12 +19,19 @@ namespace train_tracker.Controllers
         }
 
         [HttpPost]
-        public IEnumerable<int> Post([FromBody]TrainQuery query)
+        public IEnumerable<TrainInformation> Post([FromBody]TrainQuery query)
         {
-            string origin = query.Origin;
-            string destination = query.Destination;
+            TrainInformation trainInfo = new()
+            {
+                TrainName = "123",
+                RouteName = "North East Regional",
+                HistoricalDepartureDelay = "1 - 2 min",
+                HistoricalArrivalDelay = "0 min",
+                ScheduledDeparture = query.ScheduledDeparture,
+                ScheduledArrival = query.ScheduledArrival
+            };
 
-            return new List<int>() { 50, 60 };
+            return new List<TrainInformation>() { trainInfo };
         }
     }
 }
