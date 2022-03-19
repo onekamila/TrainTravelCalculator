@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Validators, FormGroup, FormBuilder, NgForm, FormControl, FormGroupDirective, AbstractControl, ValidatorFn } from '@angular/forms';
 
 @Component({
@@ -8,37 +8,54 @@ import { Validators, FormGroup, FormBuilder, NgForm, FormControl, FormGroupDirec
 })
 export class FetchDataComponent {
   trainQueryForm: FormGroup;
+  rootUrl: string;
 
   origin: FormControl;
-  dstination: FormControl;
+  destination: FormControl;
+  departure_date: FormControl;
+  delays: number[];
 
   public mockImagePath: string;
-  public trains: TrainInformation[];
-  public trainsScrape: TrainScrapeInfo[];
+  public trainsDisplay: TrainInfo[];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(http: HttpClient, formBuilder: FormBuilder, @Inject('BASE_URL') baseUrl: string) {
+
+    this.origin = new FormControl('');
+    this.destination = new FormControl('');
+    this.departure_date = new FormControl('');
+
+    this.trainQueryForm = formBuilder.group({
+      'origin': this.origin,
+      'destination': this.destination,
+      'departure_date': this.departure_date
+    });
+
     this.mockImagePath = '/assets/images/trainMapMock.png';
+    this.rootUrl = baseUrl;
+  }
 
-    http.get<TrainInformation[]>(baseUrl + 'traintrack').subscribe(result => {
-      this.trains = result;
+  onFormSubmit(form: NgForm, http: HttpClient) {
+    const headers = new HttpHeaders()
+      .append(
+        'Content-Type',
+        'application/json'
+    );
+
+    // Get historical departure delay and arrival delay
+    http.post<number[]>(this.rootUrl + 'traintrack', JSON.stringify(form), {
+      headers: headers
+    }).subscribe(result => {
+      this.delays = result;
     }, error => console.error(error));
 
-    http.get<TrainScrapeInfo[]>('http://127.0.0.1:8080/?origin=Philly&destination=NewYork').subscribe(result => {
-      this.trainsScrape = result;
-      console.log(result);
+    // Get scraping info for trains
+    http.get<TrainInfo[]>('http://127.0.0.1:8080/?origin=' + this.origin + '&destination=' + this.destination + '&departure_date=' + this.departure_date).subscribe(result => {
+      this.trainsDisplay = result;
     }, error => console.error(error));
   }
 }
 
-interface TrainInformation {
-  lineName: string;
-  historicalTimeDelay: string;
-  currentStatus: string;
-  currentDepartureTime: string;
-  scheduledDepartureTime: string;
-}
-
-interface TrainScrapeInfo {
+interface TrainInfo {
   origin: string;
   dest: string;
   train_name: string;
