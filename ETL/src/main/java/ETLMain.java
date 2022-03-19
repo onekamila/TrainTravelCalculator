@@ -8,7 +8,7 @@ package main.java;
  *  @author Garrett Kamila Crayton
  *  @version 1.0
  */
-public class Driver
+public class ETLMain
 {
     /**
      * The main function of the entire system (actually runs everything)
