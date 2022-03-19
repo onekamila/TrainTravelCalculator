@@ -18,19 +18,13 @@ namespace train_tracker.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public IEnumerable<TrainInformation> Get()
+        [HttpPost]
+        public IEnumerable<int> Post([FromBody]TrainQuery query)
         {
-            TrainInformation trainInfo = new()
-			{
-                LineName = "North East Regional",
-                HistoricalTimeDelay = "1 - 2 min",
-                CurrentStatus = "On Time",
-                CurrentDepartureTime = new DateTime(2022, 3, 3, 5, 40, 00).ToString("MM/dd hh:mm tt"),
-                ScheduledDepartureTime = new DateTime(2022, 3, 3, 5, 40, 00).ToString("MM/dd hh:mm tt")
-            };
+            string origin = query.Origin;
+            string destination = query.Destination;
 
-            return new List<TrainInformation>() { trainInfo };
+            return new List<int>() { 50, 60 };
         }
     }
 }

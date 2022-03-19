@@ -1,30 +1,20 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 
+from scraper.pageobjectmodel.browser import get_browser
+from scraper.pageobjectmodel.execute.scraper_execution import ScraperExecution
+
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 def runScraper(origin, dest, departure_date):
-    # TODO: Scrape the data here
-    return [
-        {
-            "origin": origin,
-            "dest": dest,
-            "departure_date": departure_date,
-            "train_name": "train123",
-            "scheduled_departure": "time and date here",
-            "scheduled_arrival": "time and date here",
-        },
-        {
-            "origin": origin,
-            "dest": dest,
-            "train_name": "train145",
-            "scheduled_departure": "time and date here",
-            "scheduled_arrival": "time and date here",
-        },
-    ]
+    driver = get_browser()
+    scrape = ScraperExecution(driver)
+    trains = scrape.search_train(origin, dest, departure_date)
+    scrape.driver.quit()
+    return trains
 
 
 # http://127.0.0.1:8080/?origin=Philly&destination=NewYork
@@ -33,7 +23,8 @@ def runScraper(origin, dest, departure_date):
 def index():
     origin = request.args.get('origin')
     dest = request.args.get('destination')
-    res = runScraper(origin, dest)
+    departure_date = request.args.get('departure_date')
+    res = runScraper(origin, dest, departure_date)
     return jsonify(res)
 
 

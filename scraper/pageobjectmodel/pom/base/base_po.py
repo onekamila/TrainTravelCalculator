@@ -1,4 +1,4 @@
-from scraper.pageobjectmodel.driver_api import DriverAPI
+# Base for Page Object model
 
 
 class BasePageObject:
