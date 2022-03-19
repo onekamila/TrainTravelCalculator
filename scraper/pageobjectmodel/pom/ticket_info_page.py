@@ -1,15 +1,14 @@
 from scraper.pageobjectmodel.pom.base.base_page import BasePage
-from scraper.pageobjectmodel.config import Config
+from scraper.pageobjectmodel.execute.config import Config
 
 
 class TicketInformationPage(BasePage):
     # Ticket Information Page URL for checking page presence
     expected_url = Config.ticketInfoUrl
 
-    # CSS Selector for locating page elements to interact with
-    train_number_list = "train-info span:nth-child(1)"
-    departure_time_list = "div.departure .departure-details span.font-light"
-    arrival_time_list = ".arrival .departure-details span.font-light"
+    train_number_list = "train-status-landing .train-number.ml-2"
+    departure_time_list = "#page-content train-status-landing  train-status-mini  .time-container.d-flex span:nth-child(1)"
+    arrival_time_list = "#page-content > div > train-status-landing span.time.time-arr"
 
     def __init__(self, driver, is_present=True):
         super().__init__(driver=driver, is_present=is_present)

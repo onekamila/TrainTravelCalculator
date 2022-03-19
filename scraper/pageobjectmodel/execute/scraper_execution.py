@@ -1,6 +1,6 @@
 import time
 
-from scraper.pageobjectmodel.config import Config
+from scraper.pageobjectmodel.execute.config import Config
 from scraper.pageobjectmodel.pom.ticket_info_page import TicketInformationPage
 from scraper.pageobjectmodel.pom.home_page import HomePage
 from scraper.pageobjectmodel.driver_api import DriverAPI
@@ -14,9 +14,10 @@ class ScraperExecution:
     def search_train(self, origin_info, destination_info, date_info):
         self.driver.get_link(Config.homepageUrl)
         home = HomePage(self.driver)
+        home.click_option_check_train_status()
         home.fill_origin(origin_info)
         home.fill_destination(destination_info)
-        home.fill_date(date_info)
+        home.choose_date(date_info)
         home.click_search_train_button()
         time.sleep(10)  # Time sleep for page relocating and page loading
         return self.scrape_train_data()
@@ -35,8 +36,8 @@ class ScraperExecution:
         for i in range(len(train_number_list)):
             train_entity = {
                 "train_name": train_number_list[i],
-                "scheduled_departure": departure_time_list[i],
-                "scheduled_arrival": arrival_time_list[i],
+                "scheduled_departure": departure_time_list[i][9:],
+                "scheduled_arrival": arrival_time_list[i][9:],
             }
             output_list.append(train_entity)
         return output_list

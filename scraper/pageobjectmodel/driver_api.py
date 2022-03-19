@@ -106,3 +106,15 @@ class DriverAPI:
     def click_enter(self, element_method, method_used=By.CSS_SELECTOR, timeout=10):
         WebDriverWait(self.driver, timeout).until(
             EC.presence_of_element_located((method_used, element_method))).send_keys(Keys.ENTER)
+
+    # Pick a date on date picker
+    def pick_date(self, date_CSS, input_date):
+        # Get all the dates possible to chose on webpage
+        list_date = self.get_elements(date_CSS)
+
+        # Iterate through list date to find wanted date
+        for date in list_date:
+            date_picker = date.text
+            if date_picker.strip() == str(input_date):
+                date.click()
+                break
